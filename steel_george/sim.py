@@ -10,7 +10,7 @@ class Player:  #описываем персонажа
     max_hp = 80   #
     pw = 5        #Power
     level = 0     #уровень
-    money = 100        # money
+    money = 5        # money
     xp = 0        # Очки опыта  experience
     max_xp = 10  #
     medcine = 5
@@ -213,5 +213,47 @@ def menu_fight(p):
 ########################
 
 os.system('cls||clear')
+
+
+def logo():
+    print("""
+    █████
+    █═══█
+     ███
+     ███
+████═███═████
+   ███████       ▄▀▀ ▀█▀ █▀▀ █▀▀ █░░     ▄▀▀░ █▀▀ ▄▀▄ █▀▀▄ ▄▀▀░ █▀▀
+    █▒═▒█░        ▀▄ ░█░ █▀▀ █▀▀ █░▄     █░▀▌ █▀▀ █░█ █▐█▀ █░▀▌ █▀▀
+    █▒═▒█        ▀▀░ ░▀░ ▀▀▀ ▀▀▀ ▀▀▀     ▀▀▀░ ▀▀▀ ░▀░ ▀░▀▀ ▀▀▀░ ▀▀▀
+    █▒═▒█
+    █▒═▒█
+    █▒═▒█
+    █▒═▒█  █▀▄ █░█ ▄▀▀ █░░     █░▄▀ █▀▀ ▀▄░▄▀     ▀█▀ ▄▀▄     ▄▀▀ ▀█▀ ▄▀▄ █▀▀▄ ▀█▀
+    █▒═▒█  █░█ █░█ ░▀▄ █▀▄     █▀▄░ █▀▀ ░░█░░     ░█░ █░█     ░▀▄ ░█░ █▀█ █▐█▀ ░█░
+    █▒═▒█  █▀░ ░▀░ ▀▀░ ▀░▀     ▀░▀▀ ▀▀▀ ░░▀░░     ░▀░ ░▀░     ▀▀░ ░▀░ ▀░▀ ▀░▀▀ ░▀░
+    █▒═▒█
+    █▒═▒█
+    █▒═▒█
+     █▒█
+      █
+""")
+logo()
+time.sleep(3)
+print("Loading.")
+time.sleep(0.5)
+os.system('cls||clear')
+print("Loading..")
+time.sleep(0.5)
+os.system('cls||clear')
+print("Loading...")
+time.sleep(0.5)
+os.system('cls||clear')
+print("Loading.")
+time.sleep(0.5)
+os.system('cls||clear')
+print("Loading..")
+time.sleep(0.5)
+os.system('cls||clear')
+
 menu_simple(p)
 Game_Ower()
