@@ -1,16 +1,17 @@
 # -*- coding: utf-8 -*-
-import os
+import os #For clear cls
 from random import randint
-class Player:
+
+class Player:  #описываем персонажа
     """docstring for Player;."""
-    hp = 10       # Heal point
-    max_hp = 10   #
+    hp = 80       # Heal point
+    max_hp = 80   #
     pw = 2        #Power
-    level = 0     #
+    level = 0     #уровень
     sp = 0        # skill point
     xp = 0        # Очки опыта  experience
     max_xp = 100  #
-    heal_hp = 5   #
+    heal_hp = 10   #Сила аптечки
 p = Player()
 
 #тут кароче обозначение констант
@@ -28,7 +29,7 @@ def menu_upgrade(p):
                 p.max_xp +=5
             if n == "2":
                 p.hp +=1
-                p.sp -=1
+                p.sp -=1  #меню прокачки
 
 def menu_stats(p):
     print("Player stats")
@@ -37,7 +38,7 @@ def menu_stats(p):
     print("Power {}".format(p.pw))
     print("Healing {}".format(p.heal_hp))
     input("Enter to continue.")
-    os.system('cls||clear')
+    os.system('cls||clear')   #Cтатистика персонажа
 
 
 
@@ -54,14 +55,14 @@ def menu_simple(p):
             menu_fight(p)
         if n == "2":
             os.system('cls||clear')
-            menu_stats(p)
+            menu_stats(p)  #Стартовое меню (главное)
 #        if n == "3":
 #            os.system('cls||clear')
 #            menu_upgrade(p)
 
 
-def menu_fight(p):
-    ehp = 5* randint(4,20)
+def menu_fight(p):              #Бой с противником
+    ehp = 1* randint(4,20)
     epw = 2* randint(1,5)
     while ehp>0:
         print("Enemy: {}  Power:{}".format(ehp, epw))
@@ -75,7 +76,7 @@ def menu_fight(p):
         if n == "1":
             r=randint(1,2)
             if r == 1:
-                ehp -= p.wp
+                ehp -= p.pw
                 print("you hit the enemy")
             if r == 2:
                 p.hp -= epw
@@ -95,8 +96,10 @@ def menu_fight(p):
                 return True
             else:
                 print("you can't run")
-    p=p.xp+1
-    if p.xp >= p.max_xp:
+
+
+    p.xp +=1             #даём опыта
+    if p.xp <= p.max_xp:
         p.xp = 0
         p.max_xp *= 5
         p.level +=1
@@ -108,5 +111,16 @@ def menu_fight(p):
 #
 ########################
 
-
 os.system('cls||clear')
+menu_simple(p)
+print("")
+print("")
+print("")
+print("")
+print("")
+print("")
+print("")
+print("")
+print("")
+print("")
+print("")
