@@ -1,25 +1,34 @@
 # -*- coding: utf-8 -*-
-import os #For clear cls
+import os
 import sys
 import time
 from random import randint
 
 class Player:  #описываем персонажа
     """docstring for Player;."""
-    hp = 80       # Heal point
-    max_hp = 80   #
+    hp = 50       # Heal point
+    max_hp = 50   #
     pw = 5        #Power
     level = 0     #уровень
     money = 5        # money
     xp = 0        # Очки опыта  experience
     max_xp = 10  #
     medcine = 5
-    heal_hp = 10   #Сила аптечки
+    heal_hp = 8   #Сила аптечки
     wearphone = "Hends"  #оружие
     wearphone_damage = 0
 p = Player()
 
-#тут кароче обозначение констант
+#Настройки
+def Settings(p):
+    print("1. To save game")
+    print("2. To load game")
+    print("3. To delete save")
+    print("4.")
+    print("5.")
+    print("6.")
+    print("7.")
+
 #инвентарь
 def inventary(p):
     os.system('cls||clear')
@@ -103,7 +112,7 @@ def menu_market(p):
             os.system('cls||clear')
         if n == "6":
             break
-            os.system('cls||clear')
+        os.system('cls||clear')
 
 def menu_stats(p):
     print("Player stats")
@@ -134,6 +143,8 @@ def menu_simple(p):
         print("3. To Upgrade")
         print("4. Market")
         print("5. Inventary")
+        print("6. Settings")
+
         n = input("Number:")
         if n == "1":
             os.system('cls||clear')
@@ -150,6 +161,9 @@ def menu_simple(p):
         if n == "5":
             os.system('cls||clear')
             inventary(p)
+        if n == "6":
+            os.system('cls||clear')
+            Settings(p)
 
 
 def menu_fight(p):
@@ -165,11 +179,11 @@ def menu_fight(p):
         print("3. Run away")
         n = input("Number:")
         os.system('cls||clear')
-        if n == "1":
 
+        if n == "1":
             r=randint(1,2)
             if r == 1:
-                ehp -= p.pw
+                ehp -= (p.pw + p.wearphone_damage)
                 print("you hit the enemy")
             if r == 2:
                 p.hp -= epw
@@ -188,7 +202,6 @@ def menu_fight(p):
             else: print("You haven't medcine")
 
         if n == "3":
-
             r = randint(1,3)
             if r == 3:
                 print("You ran away")
@@ -228,9 +241,9 @@ def logo():
     █▒═▒█
     █▒═▒█
     █▒═▒█
-    █▒═▒█  
-    █▒═▒█  
-    █▒═▒█  
+    █▒═▒█  █▀▄ █░█ ▄▀▀ █░░     █░▄▀ █▀▀ ▀▄░▄▀     ▀█▀ ▄▀▄     ▄▀▀ ▀█▀ ▄▀▄ █▀▀▄ ▀█▀
+    █▒═▒█  █░█ █░█ ░▀▄ █▀▄     █▀▄░ █▀▀ ░░█░░     ░█░ █░█     ░▀▄ ░█░ █▀█ █▐█▀ ░█░
+    █▒═▒█  █▀░ ░▀░ ▀▀░ ▀░▀     ▀░▀▀ ▀▀▀ ░░▀░░     ░▀░ ░▀░     ▀▀░ ░▀░ ▀░▀ ▀░▀▀ ░▀░
     █▒═▒█
     █▒═▒█
     █▒═▒█
