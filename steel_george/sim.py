@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
+import random
 import time
 from random import randint
 
@@ -14,7 +15,7 @@ class Player:  #описываем персонажа
     money = 5        # money
     xp = 0       # Очки опыта  experience
     max_xp = 10  #
-    medcine = 5
+    medcine = 6
     heal_hp = 8   #Сила аптечки
     wearphone = "Hends"  #оружие
     wearphone_damage = 0
@@ -36,7 +37,11 @@ def taverna(p):
         os.system('cls||clear')
     if k == "2":
         os.system('cls||clear')
-        import BlackJack
+        print("""
+        Готов ли ты поиграть в очко?
+        Правила просты, наберешь 20 или 21 очко и я утрою твой депозит
+        """)
+        blackjack(p)
     if k == "3":
         os.system('cls||clear')
         menu_simple(p)
@@ -83,7 +88,7 @@ def menu_upgrade(p):
             os.system('cls||clear')
         if n == "3":
             break
-        os.system('cls||clear')
+    os.system('cls||clear')
 #магазин
 def menu_market(p):
     while p.money > 0:
@@ -137,7 +142,7 @@ def menu_market(p):
             os.system('cls||clear')
         if n == "6":
             break
-        os.system('cls||clear')
+    os.system('cls||clear')
 
 def menu_stats(p):
     print("  Статус игрока")
@@ -226,10 +231,11 @@ def menu_fight(p):
 
         if n == "2":
             if p.medcine > 0:
+                p.medcine -= 1
                 p.hp += p.heal_hp
                 if p.hp > p.max_hp:
                     p.hp = p.max_hp
-                    p.medcine -= 1
+
                     print("Лечение...{}".format(p.hp))
             else: print("Аптечки кончились!")
 
@@ -249,6 +255,61 @@ def menu_fight(p):
         p.max_xp += 5
         p.level +=1
     os.system('cls||clear')
+
+
+def blackjack(p):
+
+    qaz = input("y/n\n")
+    if qaz == "y":
+        stavka = int(input("Ваша ставка  "))
+        if p.money >= stavka:
+            p.money -= stavka
+            koloda = [6,7,8,9,10,1,2,3,4,11] * 4
+            random.shuffle(koloda)
+            count = 0
+            while True:
+                choice = input('Будете брать карту? y/n\n')
+                if choice == 'y':
+                    current = koloda.pop()
+                    print('Вам попалась карта достоинством %d' %current)
+                    count += current
+                    if count > 21:
+                        print('Извините, но вы проиграли')
+                        print("Хотите повторить?  y/n  ")
+                        t = input("")
+                        if t == "y":
+                            print("Вы уверены?")
+                            blackjack(p)
+                        else:
+                            print('До новых встреч!')
+                            break
+                        break
+                    elif 20 <= count <= 21:
+                        p.money += (3*stavka)
+                        print('Поздравляю, вы выиграли!')
+                        time.sleep(2)
+                        os.system('cls||clear')
+                        print("Хотите повторить?   ")
+                        t = input("")
+                        if t == "y":
+                            blackjack(p)
+                        else:
+                            print('До новых встреч!')
+                            break
+                        break
+                    else:
+                        print('У вас %d очков.' %count)
+                elif choice == 'n':
+                    print('У вас %d очков и вы закончили игру.' %count)
+                    break
+
+        else:
+#            print("Ну как до встречи тогда")
+            print('До новых встреч!')
+        time.sleep(3)
+
+
+
 
 
 #######################
