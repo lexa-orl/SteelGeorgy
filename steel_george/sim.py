@@ -319,7 +319,7 @@ def blackjack(p):
 ########################
 
 os.system('cls||clear')
-import loading
+#import loading
 
 
 def logo():
