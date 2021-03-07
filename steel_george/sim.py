@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
+
 import os
 import sys
 import random
 import time
 from random import randint
-
 
 class Player:  #описываем персонажа
     """docstring for Player;."""
@@ -21,6 +21,72 @@ class Player:  #описываем персонажа
     wearphone_damage = 0
 p = Player()
 
+###################################
+#ДОПОЛНИТЛЬНЫЕ ЭФФЕКТЫ
+def Loading():
+    os.system('cls||clear')
+    print("Loading")
+    time.sleep(0.3)
+    os.system('cls||clear')
+    print("Loading.")
+    time.sleep(0.3)
+    os.system('cls||clear')
+    print("Loading..")
+    time.sleep(0.3)
+    os.system('cls||clear')
+    print("Loading...")
+    time.sleep(0.3)
+    os.system('cls||clear')
+    print("Loading")
+    time.sleep(0.3)
+    os.system('cls||clear')
+    print("Loading.")
+    time.sleep(0.3)
+    os.system('cls||clear')
+    print("Loading..")
+    time.sleep(0.5)
+    os.system('cls||clear')
+    print("Loading...")
+    time.sleep(0.3)
+    os.system('cls||clear')
+    print("Loading")
+    time.sleep(0.5)
+    os.system('cls||clear')
+def logo():
+    print("""
+    █████
+    █═══█
+     ███
+     ███
+████═███═████
+   ███████       ▄▀▀ ▀█▀ █▀▀ █▀▀ █░░     ▄▀▀░ █▀▀ ▄▀▄ █▀▀▄ ▄▀▀░ █▀▀
+    █▒═▒█░        ▀▄ ░█░ █▀▀ █▀▀ █░▄     █░▀▌ █▀▀ █░█ █▐█▀ █░▀▌ █▀▀
+    █▒═▒█        ▀▀░ ░▀░ ▀▀▀ ▀▀▀ ▀▀▀     ▀▀▀░ ▀▀▀ ░▀░ ▀░▀▀ ▀▀▀░ ▀▀▀
+    █▒═▒█
+    █▒═▒█
+    █▒═▒█
+    █▒═▒█
+    █▒═▒█
+    █▒═▒█
+    █▒═▒█
+    █▒═▒█
+    █▒═▒█
+     █▒█
+      █
+""")
+ #заставка
+def Game_Ower():
+    os.system('cls||clear')
+    print("""
+
+    КОНЕЦ ИГРЫ
+
+    """)
+    time.sleep(3)
+    sys.exit()   #Конец игры (с завершением работы)
+
+###################################
+
 #Настройки
 
 #Таверно
@@ -28,12 +94,13 @@ def taverna(p):
     os.system('cls||clear')
     print("""
     Ты вошел в таверну.
-1. Подойти к барной стойке. (пока в стадии разработки)
+1. Подойти к барной стойке.
 2. Пойти поиграть в очко.
 3. Уйти
     """)
     k = input("")
     if k == "1":
+
         os.system('cls||clear')
     if k == "2":
         os.system('cls||clear')
@@ -46,8 +113,6 @@ def taverna(p):
         os.system('cls||clear')
         menu_simple(p)
     os.system('cls||clear')
-
-
 
 
 #инвентарь
@@ -156,13 +221,6 @@ def menu_stats(p):
     input("Enter чтобы продолжить.")
     os.system('cls||clear')   #Cтатистика персонажа
 
-def Game_Ower():
-    os.system('cls||clear')
-    print("Конец игры")
-    time.sleep(3)
-    sys.exit()   #Конец игры (с завершением работы)
-
-
 
 #Стартовое меню (главное)
 def menu_simple(p):
@@ -176,7 +234,7 @@ def menu_simple(p):
 4. Пойти в магазин
 5. Пойти в таверну
 6. Инвентарь
-7. Настройки  (пока в стадии разработки)
+
 """)
 
         n = input("Номер:")
@@ -198,9 +256,9 @@ def menu_simple(p):
         if n == "6":
             os.system('cls||clear')
             inventary(p)
-        if n == "7":
-            os.system('cls||clear')
-            Settings(p)
+#        if n == "7":
+#            os.system('cls||clear')
+#            Settings(p)
     os.system('cls||clear')
 
 def menu_fight(p):
@@ -240,12 +298,13 @@ def menu_fight(p):
             else: print("Аптечки кончились!")
 
         if n == "3":
-            r = randint(1,3)
-            if r == 3:
+            r = randint(1,2)
+            if r == 2:
                 print("Ты сбежал")
                 return True
             else:
-                print("Ты не смог сбежать")
+                p.hp -= 1
+                print("Ты не смог сбежать и потерял 1 ед здоровья")
 
     os.system('cls||clear')
     p.xp += epw
@@ -308,7 +367,25 @@ def blackjack(p):
             print('До новых встреч!')
         time.sleep(3)
 
+#########################
+#Квесты
+def quest_1(p):
+    print("""
 
+    """)
+def quest_2(p):
+    print("""
+
+    """)
+def quest_3(p):
+    print("""
+
+    """)
+def quest_4(p):
+    print("""
+
+    """)    
+#########################
 
 
 
@@ -317,33 +394,8 @@ def blackjack(p):
 # ЗАПУСК ИГРЫ
 #
 ########################
-
 os.system('cls||clear')
-#import loading
-
-
-def logo():
-    print("""
-    █████
-    █═══█
-     ███
-     ███
-████═███═████
-   ███████       ▄▀▀ ▀█▀ █▀▀ █▀▀ █░░     ▄▀▀░ █▀▀ ▄▀▄ █▀▀▄ ▄▀▀░ █▀▀
-    █▒═▒█░        ▀▄ ░█░ █▀▀ █▀▀ █░▄     █░▀▌ █▀▀ █░█ █▐█▀ █░▀▌ █▀▀
-    █▒═▒█        ▀▀░ ░▀░ ▀▀▀ ▀▀▀ ▀▀▀     ▀▀▀░ ▀▀▀ ░▀░ ▀░▀▀ ▀▀▀░ ▀▀▀
-    █▒═▒█
-    █▒═▒█
-    █▒═▒█
-    █▒═▒█
-    █▒═▒█
-    █▒═▒█
-    █▒═▒█
-    █▒═▒█
-    █▒═▒█
-     █▒█
-      █
-""")
+Loading()
 os.system('cls||clear')
 logo()
 time.sleep(3)
