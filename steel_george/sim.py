@@ -525,8 +525,6 @@ def quest_1(p):
     		time.sleep(0.3)
     time.sleep(2)
     os.system('cls||clear')
-
-
 def quest_2(p):
     os.system('cls||clear')
     time.sleep(1)
@@ -588,7 +586,6 @@ def quest_2(p):
         print("\nВы выиграли! Слово было", word.upper())
     else:
         print("\nВЫ ПРОИГРАЛИ! ПОПРОБУЙТЕ СНОВА!")
-
 def quest_3(p):
     os.system('cls||clear')
     time.sleep(1)
@@ -597,7 +594,34 @@ def quest_3(p):
     """)
     time.sleep(2)
     os.system('cls||clear')
-
+    listnum = [random.randint(0,9) for n in range(num_digits)]
+    count=0
+    pops=100
+    while True:
+        count+=1
+        os.system('cls||clear')
+        print("~~~ Попытка: " + str(count) + " ~~~")
+        print("Попробуй угадать " + str(num_digits) + "-х значное число: ")
+        # transform input string (e.g. "1234") to list of integers (e.g. [1,2,3,4])
+        guess = [int(i) for i in str(input())]
+        if guess == listnum:
+            print("Ты Победил!")
+            print("Тебе потребовалось "+str(count)+" попыток.")
+            if count <= pops:
+                print("Ты прошел испытание, ждем дебя на следующем уровне(тут это типа + уровень написать)")
+            else:
+                print("Тебе потребовалось более попыток, тебе придется перепройти",pops)
+            break
+        else:
+            cow=0
+            bull=0
+            for x in range(0,num_digits):
+                if guess[x]==listnum[x]:
+                    cow += 1
+                elif guess[x] in listnum: # look if digit is somewhere else in the solution key (might already be a cow)
+                    bull += 1
+        print("Коров: "+str(cow)+" Быков: "+str(bull))
+        print("++++++++++++++++")
 def final_quest(p):
     os.system('cls||clear')
     time.sleep(1)
@@ -608,8 +632,8 @@ def final_quest(p):
     os.system('cls||clear')
 
 
-    BossHp = 2* randint(4,20)
-    BossPower = 3* randint(1,5)
+    BossHp = 1* randint(4,20)
+    BossPower = 1* randint(1,5)
     while BossHp > 0:
         print("""
 Здоровье главного боса: {}  Сила:{}
@@ -656,19 +680,19 @@ def final_quest(p):
                 print("Ты не смог сбежать и потерял 1 ед здоровья")
 
     os.system('cls||clear')
-    p.xp += epw
-    p.money += epw            #даём опыта
-    if p.xp >= p.max_xp:
-        p.xp = 0
-        p.max_xp += 5
-        p.level +=1
+    win_game(p)
     os.system('cls||clear')
 
-
+def win_game(p):
+    print("""
+|----------------------------------|
+|                                  |
+| Поздравляю, ты прошел эту игру!  |
+|                                  |
+|----------------------------------|
+    """)
 
 #########################
-
-
 
 #######################
 #
