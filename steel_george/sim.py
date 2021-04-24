@@ -20,93 +20,128 @@ class Player:  #описываем персонажа
     max_xp = int(10)  #
     medcine = int(7)
     heal_hp = int(5)   #Сила аптечки
-    wearphone = "Hends"  #оружие
+    wearphone = "Руки"  #оружие
     wearphone_damage = int(0)
+    name = str("sss")
+
 p = Player()
 
 ###################################
 #ДОПОЛНИТЛЬНЫЕ ЭФФЕКТЫ
+#загрузка готово
 def Loading():
-    os.system('cls||clear')
-    print("Loading")
-    time.sleep(0.3)
-    os.system('cls||clear')
-    print("Loading.")
-    time.sleep(0.3)
-    os.system('cls||clear')
-    print("Loading..")
-    time.sleep(0.3)
-    os.system('cls||clear')
-    print("Loading...")
-    time.sleep(0.3)
-    os.system('cls||clear')
-    print("Loading")
-    time.sleep(0.3)
-    os.system('cls||clear')
-    print("Loading.")
-    time.sleep(0.3)
-    os.system('cls||clear')
-    print("Loading..")
-    time.sleep(0.5)
-    os.system('cls||clear')
-    print("Loading...")
-    time.sleep(0.3)
-    os.system('cls||clear')
-    print("Loading")
-    time.sleep(0.5)
-    os.system('cls||clear')
+    i=11
+    popka=0
+    while i > 0:
+        os.system('cls||clear')
+
+        print("""
+
+
+            ---------------------
+            |                   |
+                 Loading {}%
+            |                   |
+            ----------------------
+            """.format(popka))
+        popka += 10
+        i-=1
+        time.sleep(0.3)
+#лого готово
 def logo():
     print("""
-    █████
-    █═══█
-     ███
-     ███
-████═███═████
-   ███████       ▄▀▀ ▀█▀ █▀▀ █▀▀ █░░     ▄▀▀░ █▀▀ ▄▀▄ █▀▀▄ ▄▀▀░ █▀▀
-    █▒═▒█░        ▀▄ ░█░ █▀▀ █▀▀ █░▄     █░▀▌ █▀▀ █░█ █▐█▀ █░▀▌ █▀▀
-    █▒═▒█        ▀▀░ ░▀░ ▀▀▀ ▀▀▀ ▀▀▀     ▀▀▀░ ▀▀▀ ░▀░ ▀░▀▀ ▀▀▀░ ▀▀▀
-    █▒═▒█
-    █▒═▒█
-    █▒═▒█
-    █▒═▒█
-    █▒═▒█
-    █▒═▒█
-    █▒═▒█
-    █▒═▒█
-    █▒═▒█
-     █▒█
-      █
+
+     █████
+     █═══█
+      ███
+      ███
+ ████═███═████
+    ███████
+     █▒═▒█  ▄▀▀ ▀█▀ █▀▀ █▀▀ █      ▄▀▀  █▀▀ ▄▀▄ █▀▀▄ ▄▀▀  █▀▀
+     █▒═▒█  ▀▄   █  █▀▀ █▀▀ █ ▄    █ ▀▌ █▀▀ █ █ ██▀  █ ▀▌ █▀▀
+     █▒═▒█  ▀▀   ▀  ▀▀▀ ▀▀▀ ▀▀▀    ▀▀▀  ▀▀▀  ▀  ▀ ▀▀ ▀▀▀  ▀▀▀
+     █▒═▒█
+     █▒═▒█
+     █▒═▒█
+     █▒═▒█
+     █▒═▒█
+      █▒█
+       █
 """)
- #заставка
+    time.sleep(3)
+# готово
 def Game_Ower():
     os.system('cls||clear')
     print("""
 
-    КОНЕЦ ИГРЫ
+
+
+              КОНЕЦ ИГРЫ
 
     """)
     time.sleep(3)
     sys.exit()   #Конец игры (с завершением работы)
+#  готово
+def win_game(p):
+    print("""
+                       ▄▄
+                     ▄▀░░▌
+                   ▄▀▐░░░▌  Оказалось никакой принцессы нет
+                ▄▀▀▒▐▒░░░▌  Ну ничего, в другой игре спасешь принцессу
+     ▄▀▀▄   ▄▄▀▀▒▒▒▒▌▒▒░░▌
+    ▐▒░░░▀▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒█  Спасибо за игру {}
+    ▌▒░░░░▒▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▀▄
+    ▐▒░░░░░▒▒▒▒▒▒▒▒▒▌▒▐▒▒▒▒▒▀▄
+    ▌▀▄░░▒▒▒▒▒▒▒▒▐▒▒▒▌▒▌▒▄▄▒▒▐
+   ▌▌▒▒▀▒▒▒▒▒▒▒▒▒▒▐▒▒▒▒▒█▄█▌▒▒▌
+ ▄▀▒▐▒▒▒▒▒▒▒▒▒▒▒▄▀█▌▒▒▒▒▒▀▀▒▒▐░░░▄
+▀▒▒▒▒▌▒▒▒▒▒▒▒▄▒▐███▌▄▒▒▒▒▒▒▒▄▀▀▀▀
+▒▒▒▒▒▐▒▒▒▒▒▄▀▒▒▒▀▀▀▒▒▒▒▄█▀░░▒▌▀▀▄▄
+▒▒▒▒▒▒█▒▄▄▀▒▒▒▒▒▒▒▒▒▒▒░░▐▒▀▄▀▄░░░░▀
+▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▄▒▒▒▒▄▀▒▒▒▌░░▀▄
+▒▒▒▒▒▒▒▒▀▄▒▒▒▒▒▒▒▒▀▀▀▀▒▒▒▄▀
+▒▒▒▒▒▒▒▒▒▒▀▄▄▒▒▒▒▒▒▒▒▒▒▒▐
+▒▒▒▒▒▒▒▒▒▒▒▒▒▀▀▄▄▄▒▒▒▒▒▒▌
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▐
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▐
+    """.format(p.name))
+#готово
+def start_game(p):
+    os.system('cls||clear')
+    print("""
+
+                   Приветствую тебя храбрец!
+
+          Тебе предстоит пройти трудный путь и только
+    пройдя его полностью возможно ты сможешь найти принцессу
+
+                Так же не забывай про Достижения*
+
+               Но для начала скажи как тебя зовут?
+
+
+""")
+    p.name = str(input("      "))
+    time.sleep(3)
 
 ###################################
 
-#Настройки
-
-#Таверно
+#Таверно готово
 def taverna(p):
     os.system('cls||clear')
     print("""
-    Ты вошел в таверну.
-1. Подойти к барной стойке.
-2. Пойти поиграть в очко.
-3. Уйти
+        Ты вошел в таверну.
+        1. Подойти к барной стойке.
+        2. Пойти поиграть в очко.
+        3. Уйти
     """)
     k = input("")
     if k == "1":
+        os.system('cls||clear')
         print("""
-1. Специальные задания
-2. Работа
-3. Назад
+        1. Специальные задания
+        2. Заработать денег
+        3. Назад
         """)
         wer = input("")
         if wer == "1":
@@ -121,19 +156,18 @@ def taverna(p):
 
     if k == "2":
         os.system('cls||clear')
-        print("""
-        Готов ли ты поиграть в очко?
-        Правила просты, наберешь 20 или 21 очко и я утрою твой депозит
-        """)
         blackjack(p)
     if k == "3":
         os.system('cls||clear')
         menu_simple(p)
     os.system('cls||clear')
-#инвентарь
+#инвентарь готово
 def inventary(p):
     os.system('cls||clear')
-    print("--Инвентарь--")
+    print("""
+
+   _____ИНВЕНТАРЬ_______
+    """)
     print("У тебя {} Аптечек".format(p.medcine))
     print("Тво оружие: {}".format(p.wearphone))
     print("1. Назад.")
@@ -144,7 +178,7 @@ def inventary(p):
     else:
         os.system('cls||clear')
         menu_simple(p)
-
+#
 def menu_upgrade(p):
     while p.money > 0:
         print("Выбирай прокачку!             Баланс: {}$".format(p.money))
@@ -171,18 +205,27 @@ def menu_upgrade(p):
         if n == "3":
             break
     os.system('cls||clear')
-#магазин
+#магазин готово
 def menu_market(p):
     while p.money > 0:
-        print("У тебя {}$ ".format(p.money))
+        print("____У {}______{}$ ________".format(p.name, p.money))
         print("""
-            Добро пожаловать в магазин!
-    1. Аптечка  1$
-    2. Деревянная палка (+3 heat) 5$
-    3. Дешевый меч (+5 heat) 10$
-    4. Обычный меч (+9 heat) 40$
-    5. Легендарный меч(+15 heat) 90$
-    6. Вернуться
+
+░░▄███████▀▀▀▀▀▀███████▄
+░▐████▀▒▒▒▒▒▒▒▒▒▒▀██████▄
+░███▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒▀█████
+░▐██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒████▌   Добро пожаловать в мой магазин!
+░▐█▌▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒████▌
+░░█▒▄▀▀▀▀▀▄▒▒▄▀▀▀▀▀▄▒▐███▌ Тут ты можешь купить следующие товары:
+░░░▐░░░▄▄░░▌▐░░░▄▄░░▌▐███▌
+░▄▀▌░░░▀▀░░▌▐░░░▀▀░░▌▒▀▒█▌
+░▌▒▀▄░░░░▄▀▒▒▀▄░░░▄▀▒▒▄▀▒▌     1. Аптечка  1$
+░▀▄▐▒▀▀▀▀▒▒▒▒▒▒▀▀▀▒▒▒▒▒▒█      2. Деревянная палка (+3 урона) 5$
+░░░▀▌▒▄██▄▄▄▄████▄▒▒▒▒█▀       3. Дешевый меч (+5 урона) 10$
+░░░░▄██████████████▒▒▐▌        4. Обычный меч (+9 урона) 40$
+░░░▀███▀▀████▀█████▀▒▌         5. Легендарный меч(+15 урона) 90$
+░░░░░▌▒▒▒▄▒▒▒▄▒▒▒▒▒▒▐          6. Вернуться
+░░░░░▌▒▒▒▒▀▀▀▒▒▒▒▒▒▒▐
 """)
         n = input("Номер:")
 
@@ -193,65 +236,78 @@ def menu_market(p):
         if n == "2":
             if p.money >= 5:
                 p.money -=5
-                p.wearphone = "Wooden stick"
+                p.wearphone = "Деревянная палка"
                 p.wearphone_damage =  3
             else: print("Нехватает денег")
-            time.sleep(3)
+            time.sleep(1)
             os.system('cls||clear')
         if n == "3":
             if p.money >= 10:
                 p.money -=10
-                p.wearphone = "Cheep sword"
+                p.wearphone = "Дешевый меч"
                 p.wearphone_damage =  5
             else: print("Нехватает денег")
-            time.sleep(3)
+            time.sleep(1)
             os.system('cls||clear')
         if n == "4":
             if p.money >= 40:
                 p.money -=40
-                p.wearphone = "Usual sword"
+                p.wearphone = "Обычный меч"
                 p.wearphone_damage =  9
             else: print("Нехватает денег")
-            time.sleep(3)
+            time.sleep(1)
             os.system('cls||clear')
         if n == "5":
             if p.money >= 90:
                 p.money -=90
-                p.wearphone = "Legendary sword"
+                p.wearphone = "Легендарный меч"
                 p.wearphone_damage =  15
             else: print("Нехватает денег")
-            time.sleep(3)
+            time.sleep(1)
             os.system('cls||clear')
         if n == "6":
             break
     os.system('cls||clear')
-
+#готово
 def menu_stats(p):
-    print("  Статус игрока")
-    print("----------------------")
-    print("Здоровье {}/{}".format(p.hp, p.max_hp))
-    print("Сила {}".format(p.pw))
-    print("Лечение {}".format(p.heal_hp))
-    print("Уровень {}".format(p.level))
-    print("Опыт {}".format(p.xp))
-    print("Баланс {}$".format(p.money))
+    print("""
+____________________________Статус {}___________
+            ▄▄▀▀▀▀▀▀▀▄▄
+         ▄▀▀░░░░░░░░░░░▀▄
+        ▄▀░░░░░░░░░░░░░░░░▀▄
+       ▌░░░░░░░░░░░░░░░░░░░▌    Здоровье {}/{}
+      ▌░░░░░░░░░░░░░░░░░░░░▐    Сила {}
+      ▌░▄█████▄░░░░░▄████▄░▐    Лечение {}
+     ▐░▌░▄▄▄▄▄░░░░░░▄▄▄▄▄░░▌    Уровень {}
+     ▌░▌░░░██░░░▐░▌░░██░░░█     Опыт {}
+     ▀▄▐░░░░░░░░▐░▌░░░░░░░▌     Баланс {}$
+       █░░░░░░░░▌░▐░░░░░░▐      Оружие {}
+       █░░░░░░░▀▄▄▄▀░░░░░▌
+        █░░░░▄░░░░░░▄░░░█
+    ▄▄▄▄█░░░░░▀▀▀▀▀▀░░░█
+▄▄▀▀▒▒▒▌░▀▄░░░░░░░░░░░█
+▒▒▒▒▒▒▐░░░░▀▀▄░░░░░▄▄▀▀▄
+▒▒▒▒▒▒▌░░░░░░░▀▀▀▀▀░░▐▒▒▀▄
+▒▒▒▒▒▒▐░░░░░░░░░░░░░░▐▒▒▒▒▀▄
+▒▒▒▒▒▒▒▐░░░░░░░░░░░░▐▒▒▒▒▒▒▒▀▄
+""".format(p.name, p.hp, p.max_hp, p.pw, p.heal_hp, p.level, p.xp, p.money, p.wearphone))
     input("Enter чтобы продолжить.")
     os.system('cls||clear')   #Cтатистика персонажа
-
 
 #Стартовое меню (главное)
 def menu_simple(p):
     os.system('cls||clear')
     while True:
         print("""
-    Выбери действие...
-1. Пойти сражаться
-2. Посмотреть статистику персонажа
-3. Прокачать навыки
-4. Пойти в магазин
-5. Пойти в таверну
-6. Инвентарь
-7. Банк
+
+        Выбери действие...
+    1. Пойти сражаться
+    2. Посмотреть статистику персонажа
+    3. Прокачать навыки
+    4. Пойти в магазин
+    5. Пойти в таверну
+    6. Инвентарь
+    7.
 
 """)
 
@@ -274,9 +330,9 @@ def menu_simple(p):
         if n == "6":
             os.system('cls||clear')
             inventary(p)
-        if n == "7":
-            os.system('cls||clear')
-            bank_menu(p)
+#        if n == "7":
+#            os.system('cls||clear')
+
         if n == "givememoney":
             p.money += 1000
             os.system('cls||clear')
@@ -285,18 +341,32 @@ def menu_simple(p):
             os.system('cls||clear')
             menu_simple(p)
     os.system('cls||clear')
-
+#готово
 def menu_fight(p):
     os.system('cls||clear')             #Бой с противником
     ehp = 2 * randint(4,20)
     epw = p.pw + randint(-5,5)
     while ehp>0:
-        print("Здоровье врага: {}  Сила врага:{}".format(ehp, epw))
-        print("Твое здоровье: {} из {}, Твоя сила: {}".format(p.hp, p.max_hp, p.pw))
-        print("~~~~~~" )
-        print("1. Ударить с силой {}".format(p.pw + p.wearphone_damage))
-        print("2. У тебя {} аптечек которые востанавливают по {}ед. здоровья ".format(p.medcine, p.heal_hp))
-        print("3. Сбежать")
+        print("""
+_________Твое здоровье: {} из {}, Твоя сила: {}____
+░░░░░░░▄▄▄▄▄▓▓▓▄▄▄░░░░░
+░░░░▄▄▓▀▀▀▀▀▀▓▓▓▓▓▓▄░░░
+░░▄▄▓▀▀░░░░░░░░░░░░▀▓▄░     Твой враг - циклоп!
+░▐▓▓▌░░░░░░▄▄▄▄▄░░░░░▓▌
+░▐▓▒░░░░░░█░▒◐▒░█░░░░░▓
+░▓▓▌░░░░░░░▀▀▀▀▀░░░░░▒▓      Здоровье врага: {}
+░▐▓░░░░░░░░░░░░░░░░▒▒▒▓      Сила врага:{}
+█░▀▄░█▄█▀▄▄░▀░▀▄▄▀░░█░█
+░█░░░▀▄█▄█░█▀▄▄▄▄▄▀██░█
+░░█░░░░█░███▄█▄█▄███░░█
+░░░█░░░▀▀█░█▀█▀█▀███░█
+░░░░▀▄░░░░▀▀▄█▄█▄█▄▀░█
+░░░░░░▀▄▄░▒▒▒░░░░░░░░░█
+░░░░░░░░░▀▀▄▄▄▄▄▄▄▄▄▄▀
+
+    1. Ударить с силой {}".format
+    2. У тебя {} аптечек которые востанавливают по {}ед. здоровья
+    3. Сбежать""".format( p.hp, p.max_hp, p.pw, ehp, epw, p.pw + p.wearphone_damage , p.medcine, p.heal_hp))
         n = input("Номер:")
         os.system('cls||clear')
 
@@ -309,7 +379,7 @@ def menu_fight(p):
                 p.hp -= epw
                 print("Твой враг наносит удар")
                 if p.hp <= 0:
-                    print("Ты помер")
+                    print("Ты умер")
                     time.sleep(2)
                     Game_Ower()
 
@@ -334,114 +404,90 @@ def menu_fight(p):
 
     os.system('cls||clear')
     p.xp += epw
+    p.killed +=1
     p.money += epw            #даём опыта
     if p.xp >= p.max_xp:
         p.xp = 0
         p.max_xp += 5
         p.level +=1
     os.system('cls||clear')
-
+#
 def job(p):
     print("Просто бери")
     p.money += 10
     taverna(p)
-
-def bank_menu(p):
-    os.system('cls||clear')
-    time.sleep(1)
-    print("""
-    Добро пожаловать в банк
--------------------------------
-Твой баланс {}$
-Твой депозит {}$
-Здесь ты можешь открыть депозит
-Процентная ставка 2% в минуту с капитализацией каждые 25 минут
-
-1. Вложить
-2. Снять (все)
-    """.format(p.money, p.deposit))
-    b = input("Ввод: ")
-    if b == "1":
-        dep = int(input("Сколько вкладываем?"))
-        if dep <= p.money:
-            p.money -= dep
-            p.deposit += dep
-            while p.deposit > 0:
-                z = 0
-                for z in 7:
-                    dep *= 1.02
-
-                    time.sleep(3)
-                    print("suck")
-                p.deposit += dep
-                dep = p.deposit
-                print("some dick")
-        else:
-            print("нет столько денег")
-            time.sleep(2)
-    if b == "2":
-        p.money += p.deposit
-        p.deposit = 0
-    os.system('cls||clear')
-    menu_simple(p)
-
-
+#готово
 
 def blackjack(p):
-
-    qaz = input("y/n\n")
-    if qaz == "y":
-        stavka = int(input("Ваша ставка  "))
-        if p.money >= stavka:
-            p.money -= stavka
-            koloda = [6,7,8,9,10,1,2,3,4,11] * 4
-            random.shuffle(koloda)
+    while True:
+        start = input('Нажмите Enter что бы начать, для выхода введите Exit \n')
+        start = start.lower()
+        if start != 'exit':
+            stavka = int(input("Сколько будешь ставить?"))
+            if p.money >= stavka:
+                p.money -= stavka
+            else:
+                print("Куда столько ставишь, у тебя всего {}$".format(p.money))
+                time.sleep(3)
+                taverna(p)
+            deck = [6, 7, 8, 9, 10, 10, 10, 10, 11] * 4
             count = 0
+            croupier_count = 0
+            # перемешали колоду
+            random.shuffle(deck)
+            # переменные для крупье
+            croupier_current = deck.pop()
+            croupier_count += croupier_current
+            print('У крупье {} очков'.format(croupier_current))
+            print('Добро пожаловать в игру 21!: ')
+
             while True:
-                choice = input('Будете брать карту? y/n\n')
-                if choice == 'y':
-                    current = koloda.pop()
-                    print('Вам попалась карта достоинством %d' %current)
+                os.system('cls||clear')
+                choise = input("""____У вас {} очков_____
+
+Что бы взять карту нажмите y или n что бы остановиться: """.format(count))
+                choise = choise.lower()
+
+                if choise == 'y':
+                    current = deck.pop()
+                    print('Вам попалась карта достоинством {}'.format(current))
                     count += current
                     if count > 21:
-                        print('Извините, но вы проиграли')
-                        print("Хотите повторить?  y/n  ")
-                        t = input("")
-                        if t == "y":
-                            print("Вы уверены?")
-                            blackjack(p)
-                        else:
-                            print('До новых встреч!')
-                            break
+                        print('У вас перебор')
                         break
-                    elif 20 <= count <= 21:
-                        p.money += (3*stavka)
-                        print('Поздравляю, вы выиграли!')
-                        time.sleep(2)
-                        os.system('cls||clear')
-                        print("Хотите повторить?   ")
-                        t = input("")
-                        if t == "y":
-                            blackjack(p)
-                        else:
-                            print('До новых встреч!')
-                            break
+                    elif count == 21:
+                        print('Вы выиграли')
+                        p.money += (stavka*3)
                         break
                     else:
-                        print('У вас %d очков.' %count)
-                elif choice == 'n':
-                    print('У вас %d очков и вы закончили игру.' %count)
+                        print('')
+                else:
+                    print('У вас {} очков, крупье берет карту: '.format(count))
+                    # блок добора и сравнения карт крупье
+                    while True:
+                        if croupier_count >= 17:
+                            if count <= croupier_count <= 21:
+                                print('Вы проиграли!, у вас {} у крупье {}'.format(count, croupier_count))
+                                break
+                            else:
+                                print('Вы выиграли, набрав {} очков'.format(count))
+                                p.money += (stavka*3)
+                                break
+                        else:
+                            if croupier_count < 17:
+                                croupier_current = deck.pop()
+                                croupier_count += croupier_current
+                                print(
+                                    'Крупье взял еще и ему выпало {}, у крупье {}'.format(croupier_current, croupier_count))
                     break
-
         else:
-#            print("Ну как до встречи тогда")
-            print('До новых встреч!')
-        time.sleep(3)
+            taverna(p)
 
-#########################
 #Квесты
 def barplace(p):
+    os.system('cls||clear')
     print("""
+
 Ты подошел к барной стойке, тут можно взять задание, ты готов?
         """)
     n = input("y/n")
@@ -486,7 +532,7 @@ def barplace(p):
         time.sleep(1)
         os.system('cls||clear')
         taverna(p)
-
+#готово
 def quest_1(p):
     os.system('cls||clear')
     time.sleep(1)
@@ -525,6 +571,7 @@ def quest_1(p):
     		time.sleep(0.3)
     time.sleep(2)
     os.system('cls||clear')
+#готово
 def quest_2(p):
     os.system('cls||clear')
     time.sleep(1)
@@ -586,6 +633,7 @@ def quest_2(p):
         print("\nВы выиграли! Слово было", word.upper())
     else:
         print("\nВЫ ПРОИГРАЛИ! ПОПРОБУЙТЕ СНОВА!")
+# готово
 def quest_3(p):
     os.system('cls||clear')
     time.sleep(1)
@@ -622,6 +670,7 @@ def quest_3(p):
                     bull += 1
         print("Коров: "+str(cow)+" Быков: "+str(bull))
         print("++++++++++++++++")
+#готово
 def final_quest(p):
     os.system('cls||clear')
     time.sleep(1)
@@ -635,14 +684,29 @@ def final_quest(p):
     BossHp = 1* randint(4,20)
     BossPower = 1* randint(1,5)
     while BossHp > 0:
-        print("""
-Здоровье главного боса: {}  Сила:{}
-Твое здоровье: {} из {}, Твоя сила: {}
-~~~~~~
-1. Ударить с силой {}
-2. У тебя {} аптечек которые востанавливают по {}ед. здоровья
-3. Сбежать
-        """).format(BossHp, BossPower, p.hp, p.max_hp, p.pw, p.pw + p.wearphone_damage, p.medcine, p.heal_hp)
+        print("""  Твое здоровье: {} из {}, Твоя сила: {}
+
+░░░░░░░░░░░░░▄▐░░░░
+░░░░░░░▄▄▄░░▄██▄░░░  А вот и главный босс
+░░░░░░▐▀█▀▌░░░░▀█▄░
+░░░░░░▐█▄█▌░░░░░░▀█▄  Здоровье босса {}
+░░░░░░░▀▄▀░░░▄▄▄▄▄▀▀  Сила босса {}
+░░░░░▄▄▄██▀▀▀▀░░░░░
+░░░░█▀▄▄▄█░▀▀░░░░░░
+░░░░▌░▄▄▄▐▌▀▀▀░░░░░
+░▄░▐░░░▄▄░█░▀▀░░░░░
+░▀█▌░░░▄░▀█▀░▀░░░░░
+░░░░░░░░▄▄▐▌▄▄░░░░░
+░░░░░░░░▀███▀█░▄░░░
+░░░░░░░▐▌▀▄▀▄▀▐▄░░░
+░░░░░░░▐▀░░░░░░▐▌░░
+░░░░░░░█░░░░░░░░█░░
+░░░░░░▐▌░░░░░░░░░█░
+
+    1. Ударить с силой {}
+    2. У тебя {} аптечек которые востанавливают по {}ед. здоровья
+    3. Сбежать
+        """).format(p.hp, p.max_hp, p.pw, BossHp, BossPower, p.pw + p.wearphone_damage, p.medcine, p.heal_hp)
 
         n = input("Номер:")
         os.system('cls||clear')
@@ -656,7 +720,7 @@ def final_quest(p):
                 p.hp -= BossPower
                 print("Твой враг наносит удар")
                 if p.hp <= 0:
-                    print("Ты помер")
+                    print("Ты умер")
                     time.sleep(2)
                     Game_Ower()
 
@@ -683,15 +747,6 @@ def final_quest(p):
     win_game(p)
     os.system('cls||clear')
 
-def win_game(p):
-    print("""
-|----------------------------------|
-|                                  |
-| Поздравляю, ты прошел эту игру!  |
-|                                  |
-|----------------------------------|
-    """)
-
 #########################
 
 #######################
@@ -699,10 +754,12 @@ def win_game(p):
 # ЗАПУСК ИГРЫ
 #
 ########################
-os.system('cls||clear')
-Loading()
+os.system("mode con cols=65 lines=23")
 os.system('cls||clear')
 logo()
+os.system('cls||clear')
+Loading()
 time.sleep(3)
+start_game(p)
 menu_simple(p)
 Game_Ower()
