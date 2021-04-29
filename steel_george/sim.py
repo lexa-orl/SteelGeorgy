@@ -15,14 +15,13 @@ class Player:  #описываем персонажа
     q = int(1)         #квесты
     money = int(1000)        # money
     deposit = int(0)
-#    dep = 0
     xp = int(0)       # Очки опыта  experience
     max_xp = int(10)  #
     medcine = int(7)
     heal_hp = int(5)   #Сила аптечки
     wearphone = "Руки"  #оружие
     wearphone_damage = int(0)
-    name = str("sss")
+    name = "Джорж"
 
 p = Player()
 
@@ -123,7 +122,53 @@ def start_game(p):
 """)
     p.name = str(input("      "))
     time.sleep(3)
-
+# тестируем
+def saveload(p):
+    deside=input("save/load/back    ")
+    if deside == "save":   #нормас сохраняет Spisok
+        # Spisok это мписок параметров, через который реализуем сохранялку
+        Spisok = [p.hp,p.max_xp,p.pw,p.level,p.q,p.money,p.xp,p.max_xp,p.medcine,p.wearphone,p.wearphone_damage,p.name]
+        print("Список характеристик",Spisok)
+        open('soxranenie.txt', 'w').close() # сначала очищаем
+        with open('soxranenie.txt', 'w') as f:  # теперь пишем
+            for Spisok in Spisok:
+                f.write("%s\n" % Spisok)                
+        os.system('cls||clear')
+        menu_simple(p)
+    elif deside == "load":
+        sp = [] #создаем список
+        with open('soxranenie.txt', 'r') as file:
+            #Получаем все строки из файла
+            lines = file.readlines()
+        for line in lines:
+            # каждую строку разбиваем по пробелу
+            temp = line.split()
+            # добавляем через extend, чтобы получить список, а не список списков
+            sp.extend(temp)
+        p.hp = sp[0]
+        p.max_hp = sp[1]
+        p.pw = sp[2]
+        p.level = sp[3]
+        p.q = sp[4]
+        p.money = sp[5]
+        p.xp = sp[6]
+        p.max_xp = sp[7]
+        p.medcine = sp[8]
+        p.wearphone = sp[9]
+        p.wearphone_damage = sp[10]
+        p.name = sp[11]
+        print("Готово, загружено!")
+        time.sleep(1)
+        os.system('cls||clear')
+        menu_simple(p)
+    elif deside == "back":
+        os.system('cls||clear')
+        menu_simple(p)
+    else:
+        print("Давай по новой, ты что то не то написал")
+        time.sleep(1)
+        os.system('cls||clear')
+        saveload(p)
 ###################################
 
 #Таверно готово
@@ -131,29 +176,14 @@ def taverna(p):
     os.system('cls||clear')
     print("""
         Ты вошел в таверну.
-        1. Подойти к барной стойке.
+        1. Специальные задания.
         2. Пойти поиграть в очко.
         3. Уйти
     """)
     k = input("")
     if k == "1":
+        barplace(p)
         os.system('cls||clear')
-        print("""
-        1. Специальные задания
-        2. Заработать денег
-        3. Назад
-        """)
-        wer = input("")
-        if wer == "1":
-            barplace(p)
-            os.system('cls||clear')
-        if wer == "2":
-            job(p)
-            os.system('cls||clear')
-        if wer == "3":
-            taverna(p)
-            os.system('cls||clear')
-
     if k == "2":
         os.system('cls||clear')
         blackjack(p)
@@ -307,7 +337,10 @@ def menu_simple(p):
     4. Пойти в магазин
     5. Пойти в таверну
     6. Инвентарь
-    7.
+    7. Сохранения
+
+
+Для выхода из игры напиши 'exit'.
 
 """)
 
@@ -330,9 +363,15 @@ def menu_simple(p):
         if n == "6":
             os.system('cls||clear')
             inventary(p)
-#        if n == "7":
-#            os.system('cls||clear')
-
+        if n == "7":
+            os.system('cls||clear')
+            saveload(p)
+        if n == "exit":
+            os.system('cls||clear')
+            print("Выход из игры")
+            time.sleep(2)
+            os.system('cls||clear')
+            sys.exit()
         if n == "givememoney":
             p.money += 1000
             os.system('cls||clear')
@@ -412,10 +451,7 @@ _________Твое здоровье: {} из {}, Твоя сила: {}____
         p.level +=1
     os.system('cls||clear')
 #
-def job(p):
-    print("Просто бери")
-    p.money += 10
-    taverna(p)
+
 #готово
 
 def blackjack(p):
