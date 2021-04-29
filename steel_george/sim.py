@@ -122,7 +122,7 @@ def start_game(p):
 """)
     p.name = str(input("      "))
     time.sleep(3)
-# тестируем
+# готово
 def saveload(p):
     deside=input("save/load/back    ")
     if deside == "save":   #нормас сохраняет Spisok
