@@ -122,7 +122,7 @@ def start_game(p):
 """)
     p.name = str(input("      "))
     time.sleep(3)
-# готово
+# тестируем
 def saveload(p):
     deside=input("save/load/back    ")
     if deside == "save":   #нормас сохраняет Spisok
@@ -132,7 +132,7 @@ def saveload(p):
         open('soxranenie.txt', 'w').close() # сначала очищаем
         with open('soxranenie.txt', 'w') as f:  # теперь пишем
             for Spisok in Spisok:
-                f.write("%s\n" % Spisok)                
+                f.write("%s\n" % Spisok)
         os.system('cls||clear')
         menu_simple(p)
     elif deside == "load":
@@ -250,10 +250,10 @@ def menu_market(p):
 ░░░▐░░░▄▄░░▌▐░░░▄▄░░▌▐███▌
 ░▄▀▌░░░▀▀░░▌▐░░░▀▀░░▌▒▀▒█▌
 ░▌▒▀▄░░░░▄▀▒▒▀▄░░░▄▀▒▒▄▀▒▌     1. Аптечка  1$
-░▀▄▐▒▀▀▀▀▒▒▒▒▒▒▀▀▀▒▒▒▒▒▒█      2. Деревянная палка (+3 урона) 5$
-░░░▀▌▒▄██▄▄▄▄████▄▒▒▒▒█▀       3. Дешевый меч (+5 урона) 10$
-░░░░▄██████████████▒▒▐▌        4. Обычный меч (+9 урона) 40$
-░░░▀███▀▀████▀█████▀▒▌         5. Легендарный меч(+15 урона) 90$
+░▀▄▐▒▀▀▀▀▒▒▒▒▒▒▀▀▀▒▒▒▒▒▒█      2. Деревянная_палка (+3 урона) 5$
+░░░▀▌▒▄██▄▄▄▄████▄▒▒▒▒█▀       3. Дешевый_меч (+5 урона) 10$
+░░░░▄██████████████▒▒▐▌        4. Обычный_меч (+9 урона) 40$
+░░░▀███▀▀████▀█████▀▒▌         5. Легендарный_меч(+15 урона) 90$
 ░░░░░▌▒▒▒▄▒▒▒▄▒▒▒▒▒▒▐          6. Вернуться
 ░░░░░▌▒▒▒▒▀▀▀▒▒▒▒▒▒▒▐
 """)
@@ -266,7 +266,7 @@ def menu_market(p):
         if n == "2":
             if p.money >= 5:
                 p.money -=5
-                p.wearphone = "Деревянная палка"
+                p.wearphone = "Деревянная_палка"
                 p.wearphone_damage =  3
             else: print("Нехватает денег")
             time.sleep(1)
@@ -274,7 +274,7 @@ def menu_market(p):
         if n == "3":
             if p.money >= 10:
                 p.money -=10
-                p.wearphone = "Дешевый меч"
+                p.wearphone = "Дешевый_меч"
                 p.wearphone_damage =  5
             else: print("Нехватает денег")
             time.sleep(1)
@@ -282,7 +282,7 @@ def menu_market(p):
         if n == "4":
             if p.money >= 40:
                 p.money -=40
-                p.wearphone = "Обычный меч"
+                p.wearphone = "Обычный_меч"
                 p.wearphone_damage =  9
             else: print("Нехватает денег")
             time.sleep(1)
@@ -290,7 +290,7 @@ def menu_market(p):
         if n == "5":
             if p.money >= 90:
                 p.money -=90
-                p.wearphone = "Легендарный меч"
+                p.wearphone = "Легендарный_меч"
                 p.wearphone_damage =  15
             else: print("Нехватает денег")
             time.sleep(1)
